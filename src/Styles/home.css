@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
+
+.container {
+	width: auto;
+	height: 60vh;
+	background-color: #FCF2EA;
+	/* För att knapparna ska funka... */
+	margin-bottom: 200px;
+}
+h1 {
+	font-family: 'Overlock SC', cursive;
+	font-size: 72px;
+	margin-top: 100px;
+}
+.illustration-container {
+	display: flex;
+	position: relative;
+}
+
+/* Löv-illustrationen */
+.box1 {
+	position: absolute;
+	z-index: 1;
+
+}
+/* Tjejen som lagar mat */
+.box2 {
+	margin-left: 250px;
+	margin-top: 200px;
+	z-index: 2;
+}
+
+.button-container {
+	/* margin-top: 100px; */
+	margin: 150px;
+}
+/* .button-container button {
+	margin: 10px;
+	
+} */
+/* .button-style {
+	margin: 150px;
+} */
+.my-modal {
+	width: 90vw;
+}
+
+.modal-header {
+	display: inline-block;
+	border-bottom: 0 none;
+}
+/* Om man vill att allt ska vara centrerat inuti bodyn */
+.modal-body {
+	text-align: center;
+	border: none;
+	margin-bottom: 50px;
+	/* width: 200px; */
+	/* background-color: lightseagreen; */
+}
+.modal-footer {
+	justify-content: center;
+	border-top: 0 none;
+}
+.modal-title {
+	text-align:center;
+	margin: 0 auto;
+}
+/* Här kan man styla inputfälten med fonts och färger */
+.form-control {
+
+}

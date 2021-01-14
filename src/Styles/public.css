@@ -1,0 +1,26 @@
+.test {
+	background-color: lightpink;
+	border: none;
+}
+
+/* För att göra all text i modalen centrerad */
+
+.modal-header {
+	display: inline-block;
+	border-bottom: 0 none;
+}
+/* Om man vill att allt ska vara centrerat inuti bodyn */
+.modal-body {
+	text-align: center;
+	border: none;
+	/* background-color: lightseagreen; */
+}
+.modal-footer {
+	justify-content: center;
+	border-top: 0 none;
+}
+.modal-title {
+	text-align:center;
+	margin: 0 auto;
+}
+
