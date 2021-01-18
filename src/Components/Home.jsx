@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import '../Styles/home.css'
 import { useState } from 'react'
-import { Button, Modal } from 'react-bootstrap';
+// import { Button, Modal } from 'react-bootstrap';
 
 import { ReactComponent as Cooking } from '../Illustrations/cooking.svg';
 import { ReactComponent as Leaf } from '../Illustrations/leaf.svg';
@@ -12,8 +12,12 @@ import SignUp from './SignUp';
 
 function Home() {
 
-	const [showLogIn, setShowLogIn] = useState(false);
-	const [showSignUp, setShowSignUp] = useState(false);
+
+
+
+
+	const [showLogIn, setShowLogIn] = useState(false); //Visar LoginModalen
+	const [showSignUp, setShowSignUp] = useState(false); //Visar SignUpModalen
 
 
 	return (
@@ -27,7 +31,6 @@ function Home() {
 			</div>
 			{/* Log in and Sign upp buttons */}
 			<div>
-				{/* <button onClick={handleShow} variant="info" className="btn btn-info btn-lg mr-4">Log in to see your books</button> */}
 				<button variant="info" className="btn btn-info btn-lg mr-4" onClick={() => setShowLogIn(true)}>Log in</button>
 				<button className="btn btn-danger btn-lg" onClick={() => setShowSignUp(true)}>Sign up for free</button>
 			</div>
@@ -40,6 +43,9 @@ function Home() {
 				show={showSignUp}
 				onHide={() => setShowSignUp(false)}
 			></SignUp>
+			<br />
+
+
 		</div>
 	)
 }

@@ -5,10 +5,23 @@ import SignUp from './SignUp';
 import { useState } from 'react'
 
 
-function Nav() {
+function Nav({ tokenState }) {
+	console.log("Värdet av tokenState", tokenState)
 
+	const token = tokenState
+	console.log("Detta är const token", token)
 	const [showLogIn, setShowLogIn] = useState(false);
 	const [showSignUp, setShowSignUp] = useState(false);
+
+	const [loggedIn, setLoggedIn] = useState(false);
+
+	function logInFunction() {
+		if (token == true) {
+			setShowLogIn(true);
+			// setLoggedIn(true)
+			console.log("Inuti logInFunc, värdet av token", token)
+		}
+	}
 
 	return (
 		<div>
@@ -28,11 +41,18 @@ function Nav() {
 						<a href="public-books" className="nav-link">Public books</a>
 					</li>
 				</ul>
-				<button className="btn btn-info mr-1" onClick={() => setShowLogIn(true)}>Log in</button>
-				<button className="btn btn-danger" onClick={() => setShowSignUp(true)}>Sign up</button>
+
+				<div>
+					{token ?
+						<button className="btn btn-info mr-1" onClick={logInFunction}>Log in </button> :
+						<button className="btn btn-danger mr-1" >Log out</button>}
+				</div>
+
+
+				<button className="btn btn-warning" onClick={() => setShowSignUp(true)}>Sign up</button>
 
 				<LogIn
-					show={showLogIn}
+					show={showLogIn && token}
 					onHide={() => setShowLogIn(false)}
 				/>
 				<SignUp

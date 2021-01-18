@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form'
 import { Button, Modal, Col } from 'react-bootstrap';
 
 
-
 function SignUp(props) {
 
 	return (
