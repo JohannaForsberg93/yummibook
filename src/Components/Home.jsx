@@ -21,7 +21,7 @@ function Home() {
 
 
 	return (
-		<div>
+		<div className="home-container">
 			<h1>Yummibook</h1>
 			<div className="container">
 				<div className="illustration-container">
@@ -30,7 +30,7 @@ function Home() {
 				</div>
 			</div>
 			{/* Log in and Sign upp buttons */}
-			<div>
+			{/* <div>
 				<button variant="info" className="btn btn-info btn-lg mr-4" onClick={() => setShowLogIn(true)}>Log in</button>
 				<button className="btn btn-danger btn-lg" onClick={() => setShowSignUp(true)}>Sign up for free</button>
 			</div>
@@ -43,7 +43,7 @@ function Home() {
 				show={showSignUp}
 				onHide={() => setShowSignUp(false)}
 			></SignUp>
-			<br />
+			<br /> */}
 
 
 		</div>

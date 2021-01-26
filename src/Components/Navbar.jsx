@@ -5,21 +5,21 @@ import SignUp from './SignUp';
 import { useState } from 'react'
 
 
-function Nav({ tokenState }) {
-	console.log("Värdet av tokenState", tokenState)
+function Nav({ isLoggedIn }) {
 
-	const token = tokenState
-	console.log("Detta är const token", token)
+	const userState = isLoggedIn;
+	console.log("Värdet av userState", userState)
+
 	const [showLogIn, setShowLogIn] = useState(false);
 	const [showSignUp, setShowSignUp] = useState(false);
 
 	const [loggedIn, setLoggedIn] = useState(false);
 
 	function logInFunction() {
-		if (token == true) {
+		if (userState == true) {
 			setShowLogIn(true);
 			// setLoggedIn(true)
-			console.log("Inuti logInFunc, värdet av token", token)
+			console.log("Inuti logInFunc, värdet av login", loggedIn)
 		}
 	}
 
@@ -32,10 +32,13 @@ function Nav({ tokenState }) {
 						<a href="/home" className="nav-link">Home</a>
 					</li>
 					<li className="nav-item">
-						<a href="/new" className="nav-link">Create new</a>
+						<a href="/books/new" className="nav-link">Create new</a>
 					</li>
 					<li className="nav-item">
-						<a href="/my-books" className="nav-link">My books</a>
+						<a href="/books/all" className="nav-link">My books</a>
+					</li>
+					<li className="nav-item">
+						<a href="/books/recipes" className="nav-link">My Recipes</a>
 					</li>
 					<li className="nav-item">
 						<a href="public-books" className="nav-link">Public books</a>
@@ -43,7 +46,7 @@ function Nav({ tokenState }) {
 				</ul>
 
 				<div>
-					{token ?
+					{userState ?
 						<button className="btn btn-info mr-1" onClick={logInFunction}>Log in </button> :
 						<button className="btn btn-danger mr-1" >Log out</button>}
 				</div>
@@ -52,7 +55,7 @@ function Nav({ tokenState }) {
 				<button className="btn btn-warning" onClick={() => setShowSignUp(true)}>Sign up</button>
 
 				<LogIn
-					show={showLogIn && token}
+					show={showLogIn && userState}
 					onHide={() => setShowLogIn(false)}
 				/>
 				<SignUp

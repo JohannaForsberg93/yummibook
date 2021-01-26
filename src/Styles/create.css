@@ -1,0 +1,18 @@
+.create-page {
+	height: 100vh;
+}
+.create-form-control {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.create-page h1 {
+	margin-bottom: 150px;
+}
+.file-upload {
+	width: 50%;
+	margin: 0 auto;
+}
+.create-page button {
+	margin-top: 50px;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import { Button, Modal, FormControl, FormCheck } from 'react-bootstrap';
 import { useState } from 'react';
+import axios from 'axios';
 
 
 function LogIn(props) {
@@ -13,9 +14,19 @@ function LogIn(props) {
 	});
 
 	function handleSubmit(e) {
+
 		console.log("Inuti handleSubmit", value)
+
+		axios.post('/login', { username: value.username, password: value.password })
+			.then((response) => {
+				console.log("Detta är response", response)
+			})
+
+
+
 		e.preventDefault();
 		props.onHide();
+
 		// e.target.reset();
 	}
 	function handleChange(e) {
@@ -52,7 +63,7 @@ function LogIn(props) {
 								onChange={handleChange}
 								className="form-control"
 							/>
-							<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+							<Form.Control.Feedback type="valid">Looks good!</Form.Control.Feedback>
 						</Form.Group>
 
 						<Form.Group>
