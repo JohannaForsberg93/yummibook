@@ -8,7 +8,7 @@ import { BrowserRouter as Router, useHistory } from 'react-router-dom'
 
 
 
-function CreateNew() {
+function test() {
 
 	const history = useHistory();
 
@@ -150,4 +150,4 @@ function CreateNew() {
 	)
 }
 
-export default CreateNew;
+export default test;

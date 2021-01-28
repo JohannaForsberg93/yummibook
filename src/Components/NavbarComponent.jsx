@@ -1,11 +1,13 @@
 import React from 'react';
-import '../App.css';
+import '../Styles/navbar.css';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
-import { useState } from 'react'
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
 
 
-function Nav({ isLoggedIn }) {
+function NavbarComponent({ isLoggedIn }) {
 
 	const userState = isLoggedIn;
 	console.log("Värdet av userState", userState)
@@ -25,33 +27,20 @@ function Nav({ isLoggedIn }) {
 
 	return (
 		<div>
-			<nav className=" navbar navbar-expand-sm">
-				<a className="navbar-brand" href="/home">Yummibook</a>
-				<ul className="navbar-nav ml-auto">
-					<li className="nav-item">
-						<a href="/home" className="nav-link">Home</a>
-					</li>
-					<li className="nav-item">
-						<a href="/books/new" className="nav-link">Create new</a>
-					</li>
-					<li className="nav-item">
-						<a href="/books/all" className="nav-link">My books</a>
-					</li>
-					<li className="nav-item">
-						<a href="/books/recipes" className="nav-link">My Recipes</a>
-					</li>
-					<li className="nav-item">
-						<a href="public-books" className="nav-link">Public books</a>
-					</li>
-				</ul>
 
+			<Navbar>
+				<Navbar.Brand href="/home">Yummibook</Navbar.Brand>
+				<Nav className="mr-auto">
+					<NavLink activeClassName="active" to='/home'>Home</NavLink>
+					<NavLink activeClassName="active" to='/books/new'>Create new</NavLink>
+					<NavLink activeClassName="active" to='/books/all'>My books</NavLink>
+					<NavLink activeClassName="active" to='/books/recipes'>Recipes</NavLink>
+				</Nav>
 				<div>
 					{userState ?
 						<button className="btn btn-info mr-1" onClick={logInFunction}>Log in </button> :
 						<button className="btn btn-danger mr-1" >Log out</button>}
 				</div>
-
-
 				<button className="btn btn-warning" onClick={() => setShowSignUp(true)}>Sign up</button>
 
 				<LogIn
@@ -62,11 +51,11 @@ function Nav({ isLoggedIn }) {
 					show={showSignUp}
 					onHide={() => setShowSignUp(false)}
 				></SignUp>
+			</Navbar>
 
-			</nav>
 		</div>
 
 	)
 }
 
-export default Nav;
+export default NavbarComponent;

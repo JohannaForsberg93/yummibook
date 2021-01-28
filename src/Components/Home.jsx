@@ -7,8 +7,8 @@ import { useState } from 'react'
 import { ReactComponent as Cooking } from '../Illustrations/cooking.svg';
 import { ReactComponent as Leaf } from '../Illustrations/leaf.svg';
 
-import LogIn from './LogIn';
-import SignUp from './SignUp';
+// import LogIn from './LogIn';
+// import SignUp from './SignUp';
 
 function Home() {
 
@@ -16,8 +16,8 @@ function Home() {
 
 
 
-	const [showLogIn, setShowLogIn] = useState(false); //Visar LoginModalen
-	const [showSignUp, setShowSignUp] = useState(false); //Visar SignUpModalen
+	// const [showLogIn, setShowLogIn] = useState(false); //Visar LoginModalen
+	// const [showSignUp, setShowSignUp] = useState(false); //Visar SignUpModalen
 
 
 	return (

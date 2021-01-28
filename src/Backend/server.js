@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 app.use('/books', require('../Routes/bookRoute'));
 
 // VIEW ALL BOOKS
-app.use('/books', require('../Routes/bookRoute'));
+// app.use('/books', require('../Routes/bookRoute'));
 
 //CHECK IF USER EXIST
 app.use('/login', require('../Routes/userRoute'));

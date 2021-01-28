@@ -31,4 +31,11 @@ router.route('/all').get((req, res) => {
 		.catch(err => res.status.json('error +', err))
 });
 
+// RECIPES FOR A BOOK WITH ID
+router.route('/recipes').get((req, res) => {
+
+	console.log("Detta är req.params", req.params.id)
+
+});
+
 module.exports = router;

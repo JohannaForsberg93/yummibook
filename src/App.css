@@ -1,41 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 
 }
 .App {
   text-align: center;
   background-color: #FCF2EA;
+  
 
 }
-nav {
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 10vh;
-  background-color: #FAE9D9;
 
-}
-.logo {
-  margin: 20px;
-  display: flex;
-}
-.nav-ul {
-  display: flex;
-  list-style: none;
-  justify-content: flex-end;
-  background-color: #FAE9D9;
-  width: 70%;
-}
-.nav-link {
-  margin: 20px;
-}
-/* .log-in-button {
-  margin: 20px;
-  font-size: 15px;
-} */
-a {
-  text-decoration: none;
-  color: black !important;
-}
+/* nav {
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 10vh;
+	background-color: #FAE9D9;
+  
+  }
+  .logo {
+	margin: 20px;
+	display: flex;
+  }
+  .nav-ul {
+	display: flex;
+	list-style: none;
+	justify-content: flex-end;
+	background-color: #FAE9D9;
+	width: 70%;
+  }
+  .nav-link {
+	margin: 20px;
+  } */
