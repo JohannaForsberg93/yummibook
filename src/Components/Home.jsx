@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import '../Styles/home.css'
-import { useState } from 'react'
+// import { useState } from 'react'
 // import { Button, Modal } from 'react-bootstrap';
 
 import { ReactComponent as Cooking } from '../Illustrations/cooking.svg';

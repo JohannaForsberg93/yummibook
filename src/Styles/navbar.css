@@ -8,10 +8,6 @@
 .navbar {
 	background-color: #FAE9D9;
 }
-/* .navbar-expand {
-	justify-content: flex-end;
-	margin-right: 10px;
-}  */
 
 a {
 	font-family: 'Montserrat', sans-serif;
@@ -22,3 +18,13 @@ a {
 	font-weight: 700;
   } 
 
+.navbar-collapse button {
+	width: 80px;
+	align-items: center;
+}
+
+/* Loggan i navbaren */
+.navbar-brand svg {
+	width: 80px;
+	height: 90px;
+}

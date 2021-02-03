@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
 
+.container {
+	margin:0;
+	padding: 0;
+}
 .home-container {
 	width: auto;
 	height: 100vh;
@@ -19,11 +23,11 @@ h1 {
 }
 
 /* Löv-illustrationen */
-.box1 {
+/* .box1 {
 	position: absolute;
 	z-index: 1;
 
-}
+} */
 /* Tjejen som lagar mat */
 .box2 {
 	margin-left: 250px;
@@ -35,9 +39,7 @@ h1 {
 	/* margin-top: 100px; */
 	margin: 150px;
 }
-.my-modal {
-	width: 90vw;
-}
+
 
 .modal-header {
 	display: inline-block;
@@ -60,6 +62,6 @@ h1 {
 	margin: 0 auto;
 }
 /* Här kan man styla inputfälten med fonts och färger */
-.form-control {
+/* .form-control {
 
-}
+} */

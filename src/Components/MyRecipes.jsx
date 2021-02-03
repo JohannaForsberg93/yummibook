@@ -4,21 +4,31 @@ import { useState, useEffect } from 'react';
 import '../Styles/mybooks.css';
 import { Card, CardDeck, Button } from 'react-bootstrap';
 import '../App.css';
+import { useParams, useLocation } from 'react-router-dom';
 
 
-function MyRecipes(props) {
+function MyRecipes() {
 
-	const id = props.location.state.toString();
-	console.log("Detta är id", typeof id)
+	const location = useLocation();
+	// const id = props.location.state.id; 
+	// const { id } = useParams();
+	const id = location.search;
+	console.log("Detta är id", id)
+	console.log("Detta är typeof", typeof id)
+	// const id = props.match.params;
+	// JSON.stringify(id)
+	// Object.values(id) = id;
 
-	const [recipe, setRecipe] = useState([]);
+	// console.log("Detta är id", id)
+	// console.log("Detta är typeof id", typeof id)
+	// const [recipe, setRecipe] = useState([]);
 
-	//Detta funkar inte
+
 	useEffect(() => {
-		axios.get('http://localhost:4000/books/recipes', { id })
+		axios.get('http://localhost:4000/books/recipes', { params: { id: id } })
 			.then((response) => {
 				console.log("Detta är response från MyRecipes", response)
-				setRecipe(response)
+				// setRecipe(response)
 			})
 			.catch((error) => {
 				console.log("Något gick fel vid hämtning av recept", error)
@@ -29,7 +39,7 @@ function MyRecipes(props) {
 		title: "Pannacotta",
 		description: "Bla bla bla bla"
 	};
-
+	console.log("Myrecipes renderas")
 	return (
 		<div className="mybooks-container">
 			<h1>Recipes</h1>

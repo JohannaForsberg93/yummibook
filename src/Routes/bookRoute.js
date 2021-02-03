@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 const Book = require('../Models/book');
 
-//	NEW BOOK + 1 recipe
+//	NEW BOOK ( + 1 recipe)
 router.route('/new').post((req, res) => {
 
 	const newBook = new Book({
@@ -31,10 +31,11 @@ router.route('/all').get((req, res) => {
 		.catch(err => res.status.json('error +', err))
 });
 
-// RECIPES FOR A BOOK WITH ID
-router.route('/recipes').get((req, res) => {
-
-	console.log("Detta är req.params", req.params.id)
+// RECIPES FROM A BOOK ID
+router.route('/recipes/:id').get((req, res) => {
+	console.log("Varför når den inte hit??")
+	console.log("Detta är req.params", req.params)
+	res.send("Detta är req.params", req.params)
 
 });
 

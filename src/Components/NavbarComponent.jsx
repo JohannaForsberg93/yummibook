@@ -4,7 +4,10 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
+
+import { ReactComponent as Logo } from '../Illustrations/logo.svg';
 
 
 function NavbarComponent({ isLoggedIn }) {
@@ -15,33 +18,39 @@ function NavbarComponent({ isLoggedIn }) {
 	const [showLogIn, setShowLogIn] = useState(false);
 	const [showSignUp, setShowSignUp] = useState(false);
 
-	const [loggedIn, setLoggedIn] = useState(false);
+	// const [loggedIn, setLoggedIn] = useState(false);
 
 	function logInFunction() {
-		if (userState == true) {
+		if (userState === true) {
 			setShowLogIn(true);
 			// setLoggedIn(true)
-			console.log("Inuti logInFunc, värdet av login", loggedIn)
+			// console.log("Inuti logInFunc, värdet av login", loggedIn)
 		}
 	}
 
 	return (
 		<div>
 
-			<Navbar>
+			{/* <Navbar collapseOnSelect expand="lg">
 				<Navbar.Brand href="/home">Yummibook</Navbar.Brand>
+
 				<Nav className="mr-auto">
 					<NavLink activeClassName="active" to='/home'>Home</NavLink>
 					<NavLink activeClassName="active" to='/books/new'>Create new</NavLink>
 					<NavLink activeClassName="active" to='/books/all'>My books</NavLink>
-					<NavLink activeClassName="active" to='/books/recipes'>Recipes</NavLink>
+					<NavLink activeClassName="active" to='/books/recipes/'>Recipes</NavLink>
+
 				</Nav>
-				<div>
+
+				<Nav>
+
 					{userState ?
 						<button className="btn btn-info mr-1" onClick={logInFunction}>Log in </button> :
 						<button className="btn btn-danger mr-1" >Log out</button>}
-				</div>
-				<button className="btn btn-warning" onClick={() => setShowSignUp(true)}>Sign up</button>
+
+					<button className="btn btn-warning" onClick={() => setShowSignUp(true)}>Sign up</button>
+				</Nav>
+
 
 				<LogIn
 					show={showLogIn && userState}
@@ -51,6 +60,33 @@ function NavbarComponent({ isLoggedIn }) {
 					show={showSignUp}
 					onHide={() => setShowSignUp(false)}
 				></SignUp>
+
+			</Navbar> */}
+			<br />
+			<Navbar collapseOnSelect expand="lg">
+				<Navbar.Brand href="/home">
+					<Logo className="style-logo"></Logo>
+				</Navbar.Brand>
+				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+				<Navbar.Collapse id="responsive-navbar-nav">
+					<Nav className="mr-auto">
+						<NavLink activeClassName="active" to='/home'>Home</NavLink>
+						<NavLink activeClassName="active" to='/books/new'>Create new</NavLink>
+						<NavLink activeClassName="active" to='/books/all'>My books</NavLink>
+						<NavLink activeClassName="active" to='/books/recipes/'>Recipes</NavLink>
+
+					</Nav>
+
+					<div>
+						{userState ?
+							<button className="btn btn-info mr-1" onClick={logInFunction}>Log in </button> :
+							<button className="btn btn-danger mr-1" >Log out</button>}
+
+						<button className="btn btn-warning" onClick={() => setShowSignUp(true)}>Sign up</button>
+
+					</div>
+
+				</Navbar.Collapse>
 			</Navbar>
 
 		</div>

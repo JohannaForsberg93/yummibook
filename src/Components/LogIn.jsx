@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
-import { Button, Modal, FormControl, FormCheck } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -31,9 +31,6 @@ function LogIn(props) {
 	}
 	function handleChange(e) {
 		setValue({ ...value, [e.currentTarget.name]: e.currentTarget.value });
-	}
-	function test() {
-		console.log("Funkar ens denna knappen??")
 	}
 
 	return (

@@ -1,8 +1,8 @@
 import React from 'react';
 import '../Styles/public.css';
-import Form from 'react-bootstrap/Form'
-import { useState } from 'react'
-import { Button, Modal } from 'react-bootstrap';
+// import Form from 'react-bootstrap/Form'
+// import { useState } from 'react'
+// import { Button, Modal } from 'react-bootstrap';
 
 const PublicBooks = props => {
 

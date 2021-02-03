@@ -16,13 +16,11 @@ app.use((req, res, next) => {
 	next()
 })
 
-// CREATE BOOK
+//BOOK ROUTE
 app.use('/books', require('../Routes/bookRoute'));
 
-// VIEW ALL BOOKS
-// app.use('/books', require('../Routes/bookRoute'));
 
-//CHECK IF USER EXIST
+//USER ROUTE
 app.use('/login', require('../Routes/userRoute'));
 
 
