@@ -1,23 +1,24 @@
-/* .mybooks-container {
-
-} */
-
+html, body {
+	margin: 0;
+}
+.mybooks-container {
+	/* height: 100vh; */
+}
 .mybooks-container h1 {
-	margin-bottom: 100px;
+	margin: 50px;
 }
 .card-deck{
     margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
+	/* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
 	grid-gap: 10px;
 	margin: 0 auto;
+	width: 1200px;
 }
 .mybooks-container .card-deck {
 	margin-bottom: 30px;
 }
 .book-to-recipe {
 	cursor: pointer;
-}
-.card-img-top {
-	
 }

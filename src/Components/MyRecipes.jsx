@@ -4,47 +4,53 @@ import { useState, useEffect } from 'react';
 import '../Styles/mybooks.css';
 import { Card, CardDeck, Button } from 'react-bootstrap';
 import '../App.css';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useHistory } from 'react-router-dom';
+import AddRecipe from './AddRecipe';
 
 
 function MyRecipes() {
 
+	// const history = useHistory();
+
+	// function handleHistory(){
+	// 	console.log("Inuti handleHistory detta är id", id)
+	// 	history.push({
+	// 		pathname: "/books/recipes/",
+	// 		search: id
+	// 		// state: { id }
+	// 	})
+
+	// } 
+
 	const [recipes, setRecipes] = useState([])
+	const [book, setBook] = useState("")
+	const [bookId, setBookId] = useState("")
 
 	const location = useLocation();
-	// const id = props.location.state.id; 
-	// const { id } = useParams();
-	const id = location.search;
-	console.log("Detta är id", id)
-	console.log("Detta är typeof", typeof id)
-	// const id = props.match.params;
-	// JSON.stringify(id)
-	// Object.values(id) = id;
 
+	const id = location.search;
 	// console.log("Detta är id", id)
-	// console.log("Detta är typeof id", typeof id)
-	// const [recipe, setRecipe] = useState([]);
+	// console.log("Detta är typeof", typeof id)
+	console.log("Detta är bookId", bookId)
+
 
 
 	useEffect(() => {
 		axios.get('http://localhost:4000/books/recipes', { params: { id: id } })
 			.then((response) => {
-				console.log("Detta är response", response.data)
-				setRecipes(response.data)
+				console.log("Detta är response", response.data.recipes)
+				setRecipes(response.data.recipes)
+				setBook(response.data.title)
+				setBookId(response.data._id)
 			})
 			.catch((error) => {
 				console.log("Något gick fel vid hämtning av recept", error)
 			})
 	}, []);
 
-	console.log("Detta är recipes", recipes)
-	const object = {
-		title: "Pannacotta",
-		description: "Bla bla bla bla"
-	};
 	return (
 		<div className="mybooks-container">
-			<h1>Recipes</h1> <Button className="btn btn-info m-3">Add recipe</Button>
+			<h1>{book}</h1>
 
 			<CardDeck className="card-deck">
 				{recipes.map((recipe, index) => {
@@ -56,11 +62,11 @@ function MyRecipes() {
 							<Card.Body>
 								<h3>{recipe.title}</h3><br></br>
 								<Card.Text>
-									<h5>Du behöver:</h5>
+									<b>Ingredienser:</b> <br></br>
 									{recipe.ingredients}
 								</Card.Text>
 								<Card.Text>
-									<h5>Gör såhär:</h5>
+									<b>Gör såhär: </b><br></br>
 									{recipe.description}
 								</Card.Text>
 							</Card.Body>
@@ -73,35 +79,10 @@ function MyRecipes() {
 				})}
 
 			</CardDeck>
+			<br />
 
+			<AddRecipe id={bookId}></AddRecipe>
 
-
-			{/* <CardDeck className="card-deck">
-				<Card>
-					<Card.Img variant="top" src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
-					<Card.Body>
-						<Card.Title>{recipes[0].title}</Card.Title>
-						<Card.Text>
-							{recipes[0].description}
-						</Card.Text>
-					</Card.Body>
-					<Card.Footer>
-						<Button size="sm">Edit</Button>
-					</Card.Footer>
-				</Card>
-				<Card>
-					<Card.Img variant="top" src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
-					<Card.Body>
-						<Card.Title>{object.title}</Card.Title>
-						<Card.Text>
-							{object.description}
-						</Card.Text>
-					</Card.Body>
-					<Card.Footer>
-						<Button size="sm">Edit</Button>
-					</Card.Footer>
-				</Card>
-			</CardDeck> */}
 
 		</div>
 	)

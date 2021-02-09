@@ -8,11 +8,12 @@ router.route('/new').post((req, res) => {
 	const newBook = new Book({
 		title: req.body.title,
 		description: req.body.description,
-		// recipes: [{
-		// 	title: req.body.recipes[0].title,
-		// 	description: req.body.recipes[0].description
-		// 	//Nu är det endast första[0] objektet i listan som läggs till 
-		// }]
+		recipes: [{
+			title: req.body.recipes[0].title,
+			ingredients: req.body.recipes[0].ingredients,
+			description: req.body.recipes[0].description
+			//Nu är det endast första[0] objektet i listan som läggs till 
+		}]
 	});
 
 	console.log("Detta är req.body", req.body)
@@ -48,16 +49,6 @@ router.route('/recipes').get((req, res) => {
 	// .catch(err => res.status(500).send('error +' + err.message))
 
 	console.log("Detta är req.query", req.query)
-	// res.send("Detta är req.query", req.query)
-
-	// Book.findById(id, function (err, docs) {
-	// 	if (err) {
-	// 		console.log(err);
-	// 	}
-	// 	else {
-	// 		console.log("Result : ", docs.recipes);
-	// 	}
-	// });
 
 	Book.findById(id, function (err, docs) {
 		if (err) {
@@ -65,12 +56,69 @@ router.route('/recipes').get((req, res) => {
 			res.send("Error vid hämtning av recept")
 		}
 		else {
-			console.log("Result : ", docs.recipes);
-			res.send(docs.recipes)
+			console.log("Detta är värdet av docs (hela boken): ", docs);
+			// res.send(docs.recipes)
+			res.send(docs)
+
 		}
 	});
 
 
+
+
 });
+
+// FIND A BOOK BY ID AND UPDATE WITH NEW RECIPE
+router.route('/recipes/addRecipe').put((req, res) => {
+
+	// const newBook = new Book({
+	// 	title: req.body.title,
+	// 	description: req.body.description,
+	// 	recipes: [{
+	// 		title: req.body.recipes[0].title,
+	// 		ingredients: req.body.recipes[0].ingredients,
+	// 		description: req.body.recipes[0].description
+	// 		//Nu är det endast första[0] objektet i listan som läggs till 
+	// 	}]
+	// });
+	console.log("Detta är req.body", req.body)
+
+	Book.findByIdAndUpdate(
+
+		// the id of the item to find
+		req.body.id,
+
+		// the change to be made. Mongoose will smartly combine your existing 
+		// document with this change, which allows for partial updates too
+		req.body,
+
+		// an option that asks mongoose to return the updated version 
+		// of the document instead of the pre-updated one.
+		{ new: true },
+
+		// the callback function
+		(err, doc) => {
+			// Handle any possible database errors
+			if (err) return res.status(500).send(err);
+			return res.send(doc);
+		}
+	)
+
+	// Book.find({ _id: req.body.id }, function (err, docs) {
+	// 	if (err) {
+	// 		console.log(err);
+	// 	}
+	// 	else {
+	// 		console.log("Found your book : ", docs.recipes);
+
+	// 	}
+	// });
+
+	console.log("Detta är req.body", req.body)
+	console.log("Detta är req.body.id", req.body.id)
+
+
+});
+
 
 module.exports = router;

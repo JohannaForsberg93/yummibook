@@ -20,6 +20,7 @@ function CreateNew() {
 	});
 	const [recipe, setRecipe] = useState({
 		title: "",
+		ingredients: "",
 		description: ""
 	})
 
@@ -29,6 +30,7 @@ function CreateNew() {
 
 		const recipeData = {
 			title: recipe.title,
+			ingredients: recipe.ingredients,
 			description: recipe.description
 		}
 
@@ -53,6 +55,7 @@ function CreateNew() {
 		})
 		setRecipe({
 			title: "",
+			ingredients: "",
 			description: ""
 		})
 		history.push('/books/all')
@@ -68,7 +71,6 @@ function CreateNew() {
 	return (
 		<div className="create-page">
 			<h1>Create new Yummibook</h1>
-
 
 			<Form>
 				<FormGroup>
@@ -125,6 +127,21 @@ function CreateNew() {
 						size="sm"
 						type="text"
 						placeholder="Recipe title"
+						autoComplete="off"
+					>
+					</FormControl>
+				</FormGroup>
+				<FormGroup>
+					<FormControl
+						id="ingredients"
+						name="ingredients"
+						value={recipe.ingredients}
+						onChange={handleRecipe}
+						className="create-form-control"
+						size="sm"
+						as="textarea"
+						rows={2}
+						placeholder="Ingredients"
 						autoComplete="off"
 					>
 					</FormControl>

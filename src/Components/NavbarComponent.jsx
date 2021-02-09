@@ -73,7 +73,7 @@ function NavbarComponent({ isLoggedIn }) {
 						<NavLink activeClassName="active" to='/home'>Home</NavLink>
 						<NavLink activeClassName="active" to='/books/new'>Create new</NavLink>
 						<NavLink activeClassName="active" to='/books/all'>My books</NavLink>
-						<NavLink activeClassName="active" to='/books/recipes/'>Recipes</NavLink>
+						{/* <NavLink activeClassName="active" to='/books/recipes/'>Recipes</NavLink> */}
 
 					</Nav>
 

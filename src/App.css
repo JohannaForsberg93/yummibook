@@ -10,28 +10,6 @@ html, body {
   text-align: center;
   background-color: #FCF2EA;
   margin: 0;
+  padding: 0;
 
 }
-
-/* nav {
-	display:flex;
-	justify-content: space-between;
-	align-items: center;
-	min-height: 10vh;
-	background-color: #FAE9D9;
-  
-  }
-  .logo {
-	margin: 20px;
-	display: flex;
-  }
-  .nav-ul {
-	display: flex;
-	list-style: none;
-	justify-content: flex-end;
-	background-color: #FAE9D9;
-	width: 70%;
-  }
-  .nav-link {
-	margin: 20px;
-  } */

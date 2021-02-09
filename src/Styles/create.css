@@ -1,3 +1,7 @@
+html, body {
+	margin: 0;
+}
+
 .create-page {
 	height: 100vh;
 }
@@ -7,7 +11,7 @@
 }
 
 .create-page h1 {
-	margin-bottom: 150px;
+	margin: 50px;
 }
 .file-upload {
 	width: 50%;
@@ -15,4 +19,14 @@
 }
 .create-page button {
 	margin-top: 50px;
+}
+
+/* Add recipe-styling */
+
+.add-recipe-container form {
+	padding: 50px;
+}
+.add-recipe-container {
+	background-color: #FCF2EA;
+
 }

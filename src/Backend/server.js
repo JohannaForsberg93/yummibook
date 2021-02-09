@@ -9,7 +9,7 @@ app.use(express.json());
 const port = process.env.port || 4000;
 const uri = process.env.ATLAS_URI;
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 
 app.use((req, res, next) => {
 	console.log(`${req.method} ${req.url}`);
