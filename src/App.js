@@ -18,9 +18,9 @@ function App() {
     <div className="App">
       <Router>
         <NavbarComponent isLoggedIn={logIn} />
-        <Link to={{ pathname: "/books/recipes", state: { _id: "" } }}>Recipes</Link>
+        {/* <Link to={{ pathname: "/books/recipes", state: { _id: "" } }}>Recipes</Link>
         <Link to={{ pathname: "/books/all" }}>Books All</Link>
-        <Link to={{ pathname: "/books/new" }}>New</Link>
+        <Link to={{ pathname: "/books/new" }}>New</Link> */}
 
         {/* React går igenom varje path och renderar alla matchningar. Switch gör så att den stannar så fort den hittar en matchning. */}
         <Switch>

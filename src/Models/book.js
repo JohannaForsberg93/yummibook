@@ -6,6 +6,7 @@ const bookSchema = {
 	description: String,
 	recipes: [{
 		title: String,
+		ingredients: String,
 		description: String
 
 	}]

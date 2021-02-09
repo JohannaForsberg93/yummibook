@@ -32,10 +32,44 @@ router.route('/all').get((req, res) => {
 });
 
 // RECIPES FROM A BOOK ID
-router.route('/recipes/:id').get((req, res) => {
-	console.log("Varför når den inte hit??")
-	console.log("Detta är req.params", req.params)
-	res.send("Detta är req.params", req.params)
+router.route('/recipes').get((req, res) => {
+	const id = req.query.id.substring(1)
+
+	// Book.find()
+	// 	.then(books => {
+	// 		console.log("Detta är books och id", books, id)
+	// 		const book = books.find(book => {
+	// 			console.log("Detta är book._id och id", book._id, id)
+	// 			return book._id == id
+	// 		})
+	// 		console.log("Detta är book nu", book)
+	// 		return res.json(book.recipes)
+	// 	})
+	// .catch(err => res.status(500).send('error +' + err.message))
+
+	console.log("Detta är req.query", req.query)
+	// res.send("Detta är req.query", req.query)
+
+	// Book.findById(id, function (err, docs) {
+	// 	if (err) {
+	// 		console.log(err);
+	// 	}
+	// 	else {
+	// 		console.log("Result : ", docs.recipes);
+	// 	}
+	// });
+
+	Book.findById(id, function (err, docs) {
+		if (err) {
+			console.log(err);
+			res.send("Error vid hämtning av recept")
+		}
+		else {
+			console.log("Result : ", docs.recipes);
+			res.send(docs.recipes)
+		}
+	});
+
 
 });
 

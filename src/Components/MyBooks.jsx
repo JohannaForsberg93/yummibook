@@ -47,8 +47,6 @@ function MyBooks() {
 
 	}, []);
 
-
-	console.log("Mybooks renderas")
 	return (
 		<Router>
 			<div className="mybooks-container">
@@ -61,7 +59,7 @@ function MyBooks() {
 						return (
 							<Card key={index}  >
 								{/* <Link to={{ pathname: '/books/recipes/', state: { _id } }} > */}
-								<Card.Img onClick={() => handleHistory(book._id)} variant="top" src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
+								<Card.Img className="book-to-recipe" onClick={() => handleHistory(book._id)} variant="top" src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
 								{/* </Link> */}
 
 								<Card.Body>
