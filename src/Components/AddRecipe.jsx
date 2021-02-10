@@ -28,7 +28,7 @@ function AddRecipe(props) {
 			id: id
 		}
 
-		axios.put('http://localhost:4000/books/recipes/addRecipe', recipeData)
+		axios.post('http://localhost:4000/books/recipes/addRecipe', recipeData)
 			.then((response) => {
 				console.log("Detta är response", response)
 			})
