@@ -1,13 +1,10 @@
 import React from 'react';
 import '../App.css';
 import '../Styles/home.css'
-// import { useState } from 'react'
-// import { Button, Modal } from 'react-bootstrap';
 
-// import { ReactComponent as Cooking } from '../Illustrations/cooking.svg';
-// import { ReactComponent as Leaf } from '../Illustrations/leaf.svg';
 import { ReactComponent as Yummi } from '../Illustrations/frame2.svg';
 import { ReactComponent as Books } from '../Illustrations/books.svg';
+
 
 // import LogIn from './LogIn';
 // import SignUp from './SignUp';
@@ -23,21 +20,24 @@ function Home() {
 		<div className="home-container">
 
 
+			{/* <h1 className="animate__animated animate__fadeInLeft">Testing testing</h1> */}
 
 
+			{/* <div className="illustration-container"> */}
 
-			<div className="illustration-container">
+			<Yummi className="illustration-yummi"></Yummi>
+			<div className="illustration-text ">
+				{/* <div className="animate__animated animate__fadeInLeft" > */}
+				<h3 className="animate__animated animate__fadeInLeft">Collect your favorite recipes online</h3>
+				<h3 className="animate__animated animate__fadeInRight">Create your own recipe book</h3>
+				<h3 className="animate__animated animate__fadeInLeft">Share with others</h3>
 
-				<Yummi className="illustration-yummi"></Yummi>
-				<span className="illustration-text">
-					<h3>Collect your favorite recipes online</h3>
-					<h3>Create your own recipe book</h3>
-					<h3>Share with others</h3>
-
-				</span>
-				<Books className="illustration-books"></Books>
+				{/* </div> */}
 
 			</div>
+			<Books className="illustration-books"></Books>
+
+			{/* </div> */}
 
 
 

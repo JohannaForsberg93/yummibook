@@ -11,5 +11,11 @@ html, body {
   background-color: #FCF2EA;
   margin: 0;
   padding: 0;
+  color: rgb(66, 66, 66);
 
 }
+h1, h2, h3 {
+  font-family: 'Overlock SC', cursive;
+  color: rgb(66, 66, 66);
+}
+

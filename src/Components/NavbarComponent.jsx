@@ -1,12 +1,11 @@
 import React from 'react';
 import '../Styles/navbar.css';
+import '../App.css';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
-
+import { Navbar, Nav } from 'react-bootstrap';
 import { ReactComponent as Logo } from '../Illustrations/logo.svg';
 
 
@@ -71,13 +70,13 @@ function NavbarComponent({ isLoggedIn }) {
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="mr-auto">
 						<NavLink activeClassName="active" to='/home'>Home</NavLink>
-						<NavLink activeClassName="active" to='/books/new'>Create new</NavLink>
+						<NavLink activeClassName="active" to='/books/new'>Create book</NavLink>
 						<NavLink activeClassName="active" to='/books/all'>My books</NavLink>
 						{/* <NavLink activeClassName="active" to='/books/recipes/'>Recipes</NavLink> */}
 
 					</Nav>
 
-					<div>
+					<div className="nav-buttons">
 						{userState ?
 							<button className="btn btn-info mr-1" onClick={logInFunction}>Log in </button> :
 							<button className="btn btn-danger mr-1" >Log out</button>}
@@ -87,6 +86,14 @@ function NavbarComponent({ isLoggedIn }) {
 					</div>
 
 				</Navbar.Collapse>
+				<LogIn
+					show={showLogIn && userState}
+					onHide={() => setShowLogIn(false)}
+				/>
+				<SignUp
+					show={showSignUp}
+					onHide={() => setShowSignUp(false)}
+				></SignUp>
 			</Navbar>
 
 		</div>
