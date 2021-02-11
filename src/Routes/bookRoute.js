@@ -32,7 +32,7 @@ router.route('/all').get((req, res) => {
 		.catch(err => res.status.json('error +', err))
 });
 
-// RECIPES FROM A BOOK ID
+// ALL RECIPES FROM A BOOK ID
 router.route('/recipes').get((req, res) => {
 	const id = req.query.id.substring(1)
 
@@ -62,13 +62,9 @@ router.route('/recipes').get((req, res) => {
 
 		}
 	});
-
-
-
-
 });
 
-// FIND A BOOK BY ID AND UPDATE WITH NEW RECIPE
+// FIND A BOOK BY ID AND ADD NEW RECIPE
 router.route('/recipes/addRecipe').post((req, res) => {
 
 	console.log("Detta är req.body", req.body)
@@ -77,19 +73,37 @@ router.route('/recipes/addRecipe').post((req, res) => {
 
 	Book.findById(id, function (err, book) {
 		if (err) {
-			console.log(err);
-			res.send("Error vid uppladdning av nytt recept")
+			console.log("Error: ", err);
+			res.send("Error: ", err)
 		}
 		else {
 
 			book.recipes.push(req.body)
 			book.save()
 			res.send(book.recipes)
-
 		}
 	});
-
 });
+
+
+// FIND A BOOK BY ID AND DELETE
+router.route('/all').delete((req, res) => {
+	console.log("Detta är req.query.id", req.query.id)
+	const id = req.query.id;
+
+	Book.findByIdAndDelete(id, (err, docs) => {
+		if (err) {
+			console.log("Error: ", err)
+			res.send(err)
+		}
+		else {
+			res.send("Successfully removed the book.")
+		}
+	})
+})
+
+
+
 
 
 module.exports = router;

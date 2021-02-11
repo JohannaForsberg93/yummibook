@@ -22,26 +22,30 @@ function MyRecipes() {
 
 	// } 
 
-	const [recipes, setRecipes] = useState([])
-	const [book, setBook] = useState("")
-	const [bookId, setBookId] = useState("")
+
+
+	const [book, setBook] = useState({
+		recipes: [],
+		bookTitle: "",
+		bookId: ""
+	})
 
 	const location = useLocation();
 
 	const id = location.search;
-	// console.log("Detta är id", id)
-	// console.log("Detta är typeof", typeof id)
-	console.log("Detta är bookId", bookId)
+
 
 
 
 	useEffect(() => {
 		axios.get('http://localhost:4000/books/recipes', { params: { id: id } })
 			.then((response) => {
-				console.log("Detta är response", response.data.recipes)
-				setRecipes(response.data.recipes)
-				setBook(response.data.title)
-				setBookId(response.data._id)
+
+				setBook({
+					recipes: response.data.recipes,
+					bookTitle: response.data.title,
+					bookId: response.data._id
+				})
 			})
 			.catch((error) => {
 				console.log("Något gick fel vid hämtning av recept", error)
@@ -50,10 +54,10 @@ function MyRecipes() {
 
 	return (
 		<div className="mybooks-container">
-			<h1>{book}</h1>
+			<h1>{book.bookTitle}</h1>
 
 			<CardDeck className="card-deck">
-				{recipes.map((recipe, index) => {
+				{book.recipes.map((recipe, index) => {
 
 					return (
 						<Card key={index} >
@@ -72,7 +76,7 @@ function MyRecipes() {
 							</Card.Body>
 
 							<Card.Footer>
-								<Button size="sm"> Edit</Button>
+								<Button size="sm">Delete</Button>
 							</Card.Footer>
 						</Card>
 					)
@@ -81,7 +85,7 @@ function MyRecipes() {
 			</CardDeck>
 			<br />
 
-			<AddRecipe id={bookId}></AddRecipe>
+			<AddRecipe id={book.bookId}></AddRecipe>
 
 
 		</div>

@@ -47,6 +47,20 @@ function MyBooks() {
 
 	}, []);
 
+	function deleteBook(id) {
+		console.log("Detta är id för att radera en bok", id)
+
+		axios.delete('http://localhost:4000/books/all', { params: { id: id } })
+			.then((response) => {
+				console.log("Detta är response efter delete", response)
+
+			})
+			.catch((error) => {
+				console.log("något gick fel", error)
+			})
+
+	}
+
 	return (
 		<Router>
 			<div className="mybooks-container">
@@ -70,7 +84,7 @@ function MyBooks() {
 								</Card.Body>
 
 								<Card.Footer>
-									<Button size="sm"> Edit</Button>
+									<Button onClick={() => deleteBook(book._id)} size="sm">Delete</Button>
 								</Card.Footer>
 							</Card>
 						)

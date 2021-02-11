@@ -5,12 +5,13 @@ import { useState } from 'react';
 import { FormControl, FormGroup, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 
-
 function AddRecipe(props) {
 
 	const id = props.id;
 	// console.log("Detta är props.bookId", id)
 
+	// const [error, showError] = useState(false)
+	const [success, showSuccess] = useState(false)
 	const [recipe, setRecipe] = useState({
 		title: "",
 		ingredients: "",
@@ -29,11 +30,22 @@ function AddRecipe(props) {
 		}
 
 		axios.post('http://localhost:4000/books/recipes/addRecipe', recipeData)
+
+			// if (response === 200) {
+			// 	console.log("Detta är response", response)
+			// 	showSuccess(true)
+			// }
+			// else {
+			// 	console.log("Något gick fel", error)
+			// }
+
 			.then((response) => {
 				console.log("Detta är response", response)
+				showSuccess(true)
 			})
 			.catch((error) => {
 				console.log("Något gick fel", error)
+				// showError(true)
 			})
 
 		setRecipe(
@@ -53,7 +65,6 @@ function AddRecipe(props) {
 	return (
 		<div className="add-recipe-container">
 			<h1>Create new recipe</h1>
-
 			<Form >
 				<FormGroup>
 					<FormControl
@@ -102,8 +113,9 @@ function AddRecipe(props) {
 					</FormControl>
 				</FormGroup>
 				<Button type="submit" onClick={handleSubmit}>Create!</Button>
+				{success ? <h3 className="animate__animated animate__headShake">Lyckades spara ditt recept!</h3> : null}
+				{/* {error ? <h3>Ajdå, något gick fel... Prova igen!</h3> : null} */}
 			</Form>
-
 		</div>
 	)
 }
