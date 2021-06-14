@@ -25,12 +25,11 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "cd yummibook && npm install && npm run build"
   },
   "eslintConfig": {
     "extends": [
