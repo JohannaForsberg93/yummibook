@@ -8,10 +8,6 @@ const bookSchema = {
 		title: String,
 		ingredients: String,
 		description: String
-		// title: { type: String, required: true },
-		// ingredients: { type: String, required: true },
-		// description: { type: String, required: true },
-
 	}]
 
 }

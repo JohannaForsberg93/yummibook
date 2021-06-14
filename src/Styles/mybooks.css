@@ -22,3 +22,10 @@ html, body {
 .book-to-recipe {
 	cursor: pointer;
 }
+
+@media screen and (max-width: 1185px) {
+	.card-deck {
+		grid-template-columns: 1fr 1fr;
+		width: 100%;
+	}
+}

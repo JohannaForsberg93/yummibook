@@ -17,5 +17,15 @@ html, body {
 h1, h2, h3 {
   font-family: 'Overlock SC', cursive;
   color: rgb(66, 66, 66);
+  margin-top: 30px;
 }
-
+/* .btn-primary {
+  background-color:#FFB2B7 !important;
+  border-color: #FFB2B7  !important;
+  color:  rgb(66, 66, 66) !important;
+}
+.btn-primary :hover {
+  background-color:#ad4149 !important;
+  border-color: #853136  !important;
+  color:  rgb(66, 66, 66) !important;
+} */

@@ -4,15 +4,12 @@
 html {
 	margin: 0;
 	padding: 0;
-	background-color: palevioletred;
+	background-color: #FCF2EA;
 }
 
 .home-container {
 	margin: 0;
 	background-color: #FCF2EA;
-	/* För att knapparna ska funka... */
-	/* margin-bottom: 200px; */
-
 }
 
 .animate__animated.animate__fadeInLeft {
@@ -86,7 +83,6 @@ html {
 
 } */
 
-
 @media screen and (max-width: 1643px) {
 	.illustration-books {
 		margin-top: 50px;
@@ -94,56 +90,5 @@ html {
 	.illustration-yummi {
 		max-width: 100%;
 	}
-
 }
 
-/* Det funkar tydligen inte att göra en responsiv grid med React-componenter. */
-
-  /* .test-grid {
-	height: 100vh;
-	display:grid;
-	margin: 0;
-	max-width: 100%;
-	grid-template-columns: 1fr 1fr;
-  }
-
-  .box1 {
-	  background-color: hotpink;
-
-  }
-  .box2 {
-	  background-color: indigo;
-  }
-
-  @media screen and (max-width: 500px) {
-	.test-grid {
-
-		grid-template-columns: 1fr;
-	
-	}
-}
-
-
-.test-grid2 {
-	height: 100vh;
-	display:grid;
-	margin: 0;
-	max-width: 100%;
-	grid-template-columns:repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-}
-.box11 {
-	background-color: hotpink;
-	max-width: 50%;
-
-}
-.box22 {
-	background-color: indigo;
-	max-width: 50%;
-}
-@media screen and (max-width: 500px) {
-	.test-grid2 {
-
-		grid-template-columns: 1fr;
-	
-	}
-} */

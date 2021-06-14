@@ -58,6 +58,7 @@ function CreateNew() {
 			ingredients: "",
 			description: ""
 		})
+		// setTimeout(() => window.location.reload(), 1000);
 		history.push('/books/all')
 
 
@@ -103,66 +104,57 @@ function CreateNew() {
 					>
 					</FormControl>
 				</FormGroup>
-				{/* <Form.File
-					id="image"
-					name="image"
-					value={book.image}
-					onChange={handleChange}
-					id="image"
-					label="Upload file"
-					custom
-					className="file-upload"
-				/> */}
-				<br />
-				{/* TOG BORT DETTA SÅ DET GÅR INTE ATT SPARA ETT FÖRSTA RECEPT  */}
-				<h3>Create your first recipe for this book!</h3>
 				<br /><br />
-				<FormGroup>
-					<FormControl
-						id="title"
-						name="title"
-						value={recipe.title}
-						onChange={handleRecipe}
-						className="create-form-control"
-						size="sm"
-						type="text"
-						placeholder="Recipe title"
-						autoComplete="off"
-					>
-					</FormControl>
-				</FormGroup>
-				<FormGroup>
-					<FormControl
-						id="ingredients"
-						name="ingredients"
-						value={recipe.ingredients}
-						onChange={handleRecipe}
-						className="create-form-control"
-						size="sm"
-						as="textarea"
-						rows={2}
-						placeholder="Ingredients"
-						autoComplete="off"
-					>
-					</FormControl>
-				</FormGroup>
-				<FormGroup>
-					<FormControl
-						id="description"
-						name="description"
-						value={recipe.description}
-						onChange={handleRecipe}
-						className="create-form-control"
-						size="sm"
-						as="textarea"
-						rows={5}
-						placeholder="Recipe"
-						autoComplete="off"
-					>
-					</FormControl>
-				</FormGroup>
+				<div>
+					<h3>Create your first recipe for this book!</h3>
+
+					<FormGroup>
+						<FormControl
+							id="title"
+							name="title"
+							value={recipe.title}
+							onChange={handleRecipe}
+							className="create-form-control"
+							size="sm"
+							type="text"
+							placeholder="Recipe title"
+							autoComplete="off"
+						>
+						</FormControl>
+					</FormGroup>
+					<FormGroup>
+						<FormControl
+							id="ingredients"
+							name="ingredients"
+							value={recipe.ingredients}
+							onChange={handleRecipe}
+							className="create-form-control"
+							size="sm"
+							as="textarea"
+							rows={2}
+							placeholder="Ingredients"
+							autoComplete="off"
+						>
+						</FormControl>
+					</FormGroup>
+					<FormGroup>
+						<FormControl
+							id="description"
+							name="description"
+							value={recipe.description}
+							onChange={handleRecipe}
+							className="create-form-control"
+							size="sm"
+							as="textarea"
+							rows={5}
+							placeholder="Recipe"
+							autoComplete="off"
+						>
+						</FormControl>
+					</FormGroup>
+					<Button className="create-form-button" type="submit" onClick={handleSubmit}>Create!</Button>
+				</div>
 			</Form>
-			<Button type="submit" onClick={handleSubmit}>Create!</Button>
 		</div>
 	)
 }

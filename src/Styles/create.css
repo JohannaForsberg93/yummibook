@@ -23,7 +23,6 @@ html, body {
 	margin-top: 50px;
 }
 
-/* Add recipe-styling */
 
 .add-recipe-container form {
 	padding: 50px;
@@ -32,9 +31,7 @@ html, body {
 	background-color: #FCF2EA;
 
 }
-.btn-primary {
+.create-form-button {
 	margin-bottom: 30px;
 }
-/* .animate__animated.animate__headShake {
-	--animate-duration: 2s;
-}  */
+

@@ -9,8 +9,6 @@ function AddRecipe(props) {
 
 	const id = props.id;
 	// console.log("Detta är props.bookId", id)
-
-	// const [error, showError] = useState(false)
 	const [success, showSuccess] = useState(false)
 	const [recipe, setRecipe] = useState({
 		title: "",
@@ -30,22 +28,14 @@ function AddRecipe(props) {
 		}
 
 		axios.post('http://localhost:4000/books/recipes/addRecipe', recipeData)
-
-			// if (response === 200) {
-			// 	console.log("Detta är response", response)
-			// 	showSuccess(true)
-			// }
-			// else {
-			// 	console.log("Något gick fel", error)
-			// }
-
 			.then((response) => {
-				console.log("Detta är response", response)
+				// console.log("Detta är response", response)
+				// setTimeout(() => window.location.reload(), 1000);
 				showSuccess(true)
+
 			})
 			.catch((error) => {
 				console.log("Något gick fel", error)
-				// showError(true)
 			})
 
 		setRecipe(
@@ -54,7 +44,6 @@ function AddRecipe(props) {
 				ingredients: "",
 				description: ""
 			})
-
 
 	}
 
@@ -112,9 +101,9 @@ function AddRecipe(props) {
 					>
 					</FormControl>
 				</FormGroup>
-				<Button type="submit" onClick={handleSubmit}>Create!</Button>
+				<Button type="submit" onClick={handleSubmit}>Create!</Button><br /><br />
 				{success ? <h3 className="animate__animated animate__headShake">Lyckades spara ditt recept!</h3> : null}
-				{/* {error ? <h3>Ajdå, något gick fel... Prova igen!</h3> : null} */}
+
 			</Form>
 		</div>
 	)

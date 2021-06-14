@@ -44,8 +44,6 @@ function SignUp(props) {
 							<Form.Check type="checkbox" label="I'm a nice person" />
 						</Form.Group>
 					</Form>
-
-
 				</Modal.Body>
 				<Modal.Footer>
 					<Button variant="primary" type="submit" onClick={props.onHide}>Create Account</Button>

@@ -2,55 +2,41 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import '../Styles/mybooks.css';
-import { Card, CardDeck, Button } from 'react-bootstrap';
+import { Card, CardDeck } from 'react-bootstrap';
 import '../App.css';
-import { useParams, useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import AddRecipe from './AddRecipe';
 
 
 function MyRecipes() {
-
-	// const history = useHistory();
-
-	// function handleHistory(){
-	// 	console.log("Inuti handleHistory detta är id", id)
-	// 	history.push({
-	// 		pathname: "/books/recipes/",
-	// 		search: id
-	// 		// state: { id }
-	// 	})
-
-	// } 
-
-
-
 	const [book, setBook] = useState({
 		recipes: [],
 		bookTitle: "",
 		bookId: ""
 	})
+	const [recipeId, setRecipeId] = useState([])
 
 	const location = useLocation();
-
 	const id = location.search;
 
-
-
-
+	// console.log("Vad är book.recipes._id?", book.recipes._id)
 	useEffect(() => {
 		axios.get('http://localhost:4000/books/recipes', { params: { id: id } })
 			.then((response) => {
-
+				// console.log("Detta är response", response)
 				setBook({
 					recipes: response.data.recipes,
 					bookTitle: response.data.title,
 					bookId: response.data._id
 				})
+				// console.log("Detta är recipe id", response.data.recipes)
+				setRecipeId(response.data.recipes._id)
 			})
 			.catch((error) => {
 				console.log("Något gick fel vid hämtning av recept", error)
 			})
-	}, []);
+	}, [book]);
+
 
 	return (
 		<div className="mybooks-container">
@@ -76,7 +62,7 @@ function MyRecipes() {
 							</Card.Body>
 
 							<Card.Footer>
-								<Button size="sm">Delete</Button>
+								{/* <Button onClick={deleteBook(recipe._id)} size="sm">Delete</Button> */}
 							</Card.Footer>
 						</Card>
 					)

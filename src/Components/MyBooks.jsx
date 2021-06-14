@@ -3,36 +3,20 @@ import { useState, useEffect } from 'react';
 import '../Styles/mybooks.css';
 import { Card, CardDeck, Button } from 'react-bootstrap';
 import axios from 'axios';
-import { BrowserRouter as Router, useHistory, Link } from 'react-router-dom'
+import { BrowserRouter as Router, useHistory } from 'react-router-dom'
 
 function MyBooks() {
-
 
 	const history = useHistory();
 
 	function handleHistory(id) {
-		console.log("Inuti handleHistory detta är id", id)
+		// console.log("Inuti handleHistory detta är id", id)
 		history.push({
 			pathname: "/books/recipes/",
 			search: id
-			// state: { id }
 		})
-
-		// history.push(`/books/recipes/${id}`)
 	}
 
-	// function handleState() {
-	// 	setState(true)
-	// 	if (state) {
-	// 		// window.location.reload()
-	// 	}
-	// 	// setTimeout(() => window.location.reload(), 0.100);
-
-	// }
-
-	// const [id, setId] = useState("")
-
-	// const [state, setState] = useState(false)
 	const [apiData, setApiData] = useState([]);
 	useEffect(() => {
 
@@ -42,23 +26,23 @@ function MyBooks() {
 
 			})
 			.catch((error) => {
-				console.log("något gick fel", error)
+				// console.log("något gick fel", error)
 			})
 
 	}, []);
 
 	function deleteBook(id) {
-		console.log("Detta är id för att radera en bok", id)
+		// console.log("Detta är id för att radera en bok", id)
 
 		axios.delete('http://localhost:4000/books/all', { params: { id: id } })
 			.then((response) => {
-				console.log("Detta är response efter delete", response)
+				// console.log("Detta är response efter delete", response)
+				setTimeout(() => window.location.reload(), 0.500);
 
 			})
 			.catch((error) => {
-				console.log("något gick fel", error)
+				// console.log("något gick fel", error)
 			})
-
 	}
 
 	return (
@@ -75,7 +59,6 @@ function MyBooks() {
 								{/* <Link to={{ pathname: '/books/recipes/', state: { _id } }} > */}
 								<Card.Img className="book-to-recipe" onClick={() => handleHistory(book._id)} variant="top" src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
 								{/* </Link> */}
-
 								<Card.Body>
 									<Card.Title>{book.title}</Card.Title>
 									<Card.Text>
@@ -95,8 +78,6 @@ function MyBooks() {
 			</div>
 		</Router>
 	)
-
-
 
 }
 

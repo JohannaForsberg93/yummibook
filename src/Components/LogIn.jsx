@@ -21,13 +21,8 @@ function LogIn(props) {
 			.then((response) => {
 				console.log("Detta är response", response)
 			})
-
-
-
 		e.preventDefault();
 		props.onHide();
-
-		// e.target.reset();
 	}
 	function handleChange(e) {
 		setValue({ ...value, [e.currentTarget.name]: e.currentTarget.value });
@@ -40,17 +35,14 @@ function LogIn(props) {
 				{...props}
 				size="md"
 			>
-				{/* Tog bort closeButton (krysset) från Modal.Header */}
 				<Modal.Header>
 					<Modal.Title className="modal-title" id="contained-modal-title-vcenter">
 						<h3>Log in to your account</h3>
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					{/* <h4>Centered Modal</h4> */}
 					<Form >
 						<Form.Group required >
-							{/* <Form.Label>Username</Form.Label> */}
 							<Form.Control
 								type="text"
 								placeholder="Username"
@@ -64,7 +56,6 @@ function LogIn(props) {
 						</Form.Group>
 
 						<Form.Group>
-							{/* <Form.Label>Password</Form.Label> */}
 							<Form.Control
 								type="password"
 								placeholder="Password"
@@ -73,26 +64,15 @@ function LogIn(props) {
 								value={value.password}
 								onChange={handleChange}
 								className="form-control"
-
 							/>
-							{/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
-
 						</Form.Group>
 					</Form>
-					{/* <Form.Control.Feedback type="invalid">
-						Error.
-            		</Form.Control.Feedback> */}
 				</Modal.Body>
 				<Modal.Footer>
 					<Button type="submit" onClick={handleSubmit}>Submit</Button>
 					<Button variant="danger" onClick={props.onHide}>Close</Button>
 				</Modal.Footer>
 			</Modal>
-
-			{/* {(value.username != "") ? (
-				<div>
-					<h2>Welcome back, <span>{value.username}</span></h2>
-				</div>) : "Inte inloggad"} */}
 		</div>
 	)
 

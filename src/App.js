@@ -1,17 +1,15 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react'
-// import { Nav, Navbar } from 'react-bootstrap';
 import CreateNew from './Components/CreateNew';
 import Home from './Components/Home'; //Home after Sign-up
 import MyBooks from './Components/MyBooks';
-import PublicBooks from './Components/PublicBooks';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MyRecipes from './Components/MyRecipes';
 import NavbarComponent from './Components/NavbarComponent';
 
 function App() {
-  const [logIn, setLogIn] = useState(true)
+  const [logIn] = useState(true)
 
 
   return (
@@ -30,7 +28,6 @@ function App() {
           <Route path="/books/new" component={CreateNew} />
           <Route path="/books/all" component={MyBooks} />
           <Route path="/books/recipes" component={MyRecipes} />
-          <Route path="/public-books" component={PublicBooks} />
         </Switch>
       </Router>
     </div>
